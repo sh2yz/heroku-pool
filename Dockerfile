@@ -6,9 +6,5 @@ RUN apk update && \
     chmod +x /proxypoolv0.7.3 && \
     sed -i "s/port:/port: $PORT/g" /config.yaml && \
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml && \
-    rm -rf /var/cache/apk/*
-        
-ADD start.sh /start.sh
-RUN chmod +x /start.sh
-
-CMD /start.sh
+    rm -rf /var/cache/apk/* 
+ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml"]
