@@ -2,7 +2,7 @@
 
 # download
 wget https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/proxypoolv0.7.3 -O proxypool
-chmod 755 proxypool
+chmod +x proxypool
 wget https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/source.yaml -O source.yaml
 wget https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/config.yaml -O config.yaml
 sed  -i "s/port:/port: $PORT/g" config.yaml 
@@ -15,5 +15,5 @@ unzip -d assets assets.zip
 # start
 
 
-./proxypool -c config.yaml &
+/proxypool -d
 
