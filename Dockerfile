@@ -1,7 +1,7 @@
 FROM alpine:edge
 
 RUN apk update && \
-    apk add --no-cache ca-certificates tzdata wget &&
+    apk add --no-cache ca-certificates tzdata wget 
     
     
 ADD start.sh /start.sh
