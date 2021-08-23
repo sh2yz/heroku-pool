@@ -7,4 +7,4 @@ RUN apk update && \
     sed -i "s/port:/port: $PORT/g" /config.yaml && \
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml && \
     rm -rf /var/cache/apk/* 
-ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml", "&"]
+ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml", ">/dev/null 2>/dev/null &"]
