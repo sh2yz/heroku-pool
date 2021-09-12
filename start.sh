@@ -5,7 +5,7 @@
     unzip proxypool-linux-amd64.zip 
     chmod +x /proxypoolv0.7.3 
     sed -i "s/port:/port: $PORT/g" /config.yaml 
-    sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml 
+    sed -i "s/domain:  127.0.0.1/domain:  $DOMAIN/g" /config.yaml 
     rm -rf /var/cache/apk/* 
     touch pool.log 
     /proxypoolv0.7.3 -c /config.yaml >pool.log
