@@ -9,4 +9,8 @@ RUN apt update && \
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml && \
     rm -rf /var/cache/apk/*  && \
     touch pool.log 
-ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml", ">pool.log"]
+#ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml", ">pool.log"]
+ADD start.sh /start.sh
+RUN chmod +x /start.sh
+
+CMD /start.sh
