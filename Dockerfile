@@ -7,10 +7,6 @@ RUN apt update && \
     chmod +x /proxypoolv0.7.3 && \
     sed -i "s/port:/port: $PORT/g" /config.yaml && \
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml && \
-    rm -rf /var/cache/apk/* 
-RUN cd /var && \
-    sudo swapoff /var/swap && \
-    dd if=/dev/zero of=swap bs=1M count=2048 && \
-    sudo mkswap /var/swap && \
-    sudo swapon /var/swap
-ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml"]
+    rm -rf /var/cache/apk/*  && \
+    touch pool.log 
+ENTRYPOINT ["/proxypoolv0.7.3", "-c", "/config.yaml", ">pool.log"]
