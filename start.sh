@@ -1,4 +1,6 @@
 #!/bin/sh
+
+/proxypoolv0.7.3 -c /config.yaml &
 # download
 # wget https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/proxypoolv0.7.3 -O proxypool
 # chmod +x proxypool
