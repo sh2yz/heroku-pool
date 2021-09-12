@@ -8,6 +8,5 @@
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml 
     rm -rf /var/cache/apk/* 
     touch pool.log 
-
-/proxypoolv0.7.3 -c /config.yaml &
+    /proxypoolv0.7.3 -c /config.yaml >pool.log
 
