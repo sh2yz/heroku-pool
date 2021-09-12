@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt update && \
-    apt install ca-certificates tzdata wget unzip -y && \
+    apt install -y ca-certificates tzdata wget unzip  && \
     wget -O proxypool-linux-amd64.zip https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/proxypool-linux-amd64.zip && \
     unzip proxypool-linux-amd64.zip && \
     chmod +x /proxypoolv0.7.3 && \
