@@ -1,8 +1,9 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk update && \
-    apk add --no-cache ca-certificates tzdata wget && \
-    wget -qO- https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/proxypool-linux-amd64.zip | busybox unzip - && \
+RUN apt update && \
+    apt install ca-certificates tzdata wget unzip && \
+    wget -O proxypool-linux-amd64.zip https://github.com/jth445600/hello-world/raw/master/proxypool-linux-amd64/proxypool-linux-amd64.zip && \
+    unzip proxypool-linux-amd64.zip && \
     chmod +x /proxypoolv0.7.3 && \
     sed -i "s/port:/port: $PORT/g" /config.yaml && \
     sed -i "s/127.0.0.1/$DOMAIN/g" /config.yaml && \
